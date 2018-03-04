@@ -1,0 +1,205 @@
+---
+title: "R Markdown Template for the Shower Presentation Engine"
+subtitle: "hello"
+author: "Leo Lu"
+date: '`r Sys.Date()`'
+output: 
+  rmdshower::shower_presentation:
+    ratio: 16x10
+    self_contained: true
+    theme: material
+    katex: false  # formula rendering, but slow. turn on if needed
+    highlight: pygments
+    css: css/shower.css
+params:
+  refresh: no
+---
+
+```{r, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(warning = TRUE,
+                      echo = TRUE,
+                      message = TRUE,
+                      collapse = FALSE,
+                      comment = "#>",
+                      fig.align='center',
+                      cache=FALSE)
+## knitr::opts_knit$set(root.dir = '.')
+```
+
+
+## How to use this slides
+
+### subtitle
+
+- Press **Esc** to navigation mode
+- Press **pageDown**, **Right** or **Down** to go to next slide
+- Presss **PageUP**, **Left** or **Up** to go to previous slide
+
+# 標題頁
+
+## Note
+
+(可放資料來源等文字)
+
+<p class="note">
+Shower ['ʃəuə] noun. A person or thing that shows.
+</p>
+
+## Place (置中方塊)
+
+<p class="place" style="font-size:150%">
+Shower ['ʃəuə] noun. A person or thing that shows.
+</p>
+
+### another place {.place}
+
+
+## badge
+
+<p class="badge">
+		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
+</p>
+	
+## Hint
+
+標題扣掉中文字元只剩下數字或空白會有跳頁錯誤
+
+## <br/><br/>白底，白字標題 {.white}
+
+<img src="img/reptile.jpg" class="cover">
+`class="cover" 是滿版圖`<br/>
+
+
+## <br/><br/>黑底，灰字標題 {.black}
+
+<p style='color:white'>
+白字
+</p>
+<p class="white">
+這也是白字
+</p>
+
+
+## Grid page {.grid}
+
+sdfsdfasdf
+
+##  
+
+標題可以空白
+
+<div align="center" style="font-size: 250%">
+<p>課程資訊</p>
+<a target="_blank" href="http://data-sci.info/r-crawler-101/">網站</a>/
+<a target="_blank" href="http://data-sci.info/forums/">論壇</a>/
+<a target="_blank" href="https://www.facebook.com/datasci.info">粉絲頁</a>/
+<a target="_blank" href="https://goo.gl/rt7uAJ">廣播</a>/
+<a target="_blank" href="https://goo.gl/ennxQz">共筆</a>
+</div>
+
+<div align="center">
+<h3>
+課後若有任何問題歡迎至論壇發問
+</h3>
+</div>
+
+
+## 內容置中
+
+<div align="center" style="font-size: 250%">
+我是置中文字
+</div>
+```{r}
+print("hihi")
+```
+
+## 圖片滿寬，自動調整至頁面大小
+
+<img src="img/scifi.jpg" alt="" style="height:auto; max-width:100%;">
+
+
+## 圖片 70% 寬
+
+
+<img src="img/lists-pepper.png" alt="" style="max-width:70%;" />
+
+
+## 圖片90%寬、90%高
+
+<img class="cover" src="img/crawler_process.png" style="max-width:90%; max-height:90%;">
+
+
+## 圖片指定 400px 寬
+
+<a target="_blank" href="http://www.family.com.tw/marketing/inquiry.aspx">
+<img src="img/sw.jpg" width="400px">
+</a>
+
+
+## 圖片滿版置中part1 { .fullpage }
+
+<img src="img/sw.jpg">
+
+## 圖片滿版置中part2 { .fullpage }
+
+<div class="fullpage width">
+```{r, echo=FALSE}
+par(mar = c(5, 4, 1, 2) + 0.1)
+pairs(iris[1:4], pch = 21,
+      bg = c("red", "green3", "blue")[unclass(iris$Species)])
+```
+</div>
+
+## 兩欄獨立圖片
+
+<div class="double">
+<p class="double">
+```{r, echo=FALSE, dev='png', out.width=420}
+par(mar = c(5, 4, 1, 2) + 0.1)
+pairs(iris[1:4], pch = 21,
+      bg = c("red", "green3", "blue")[unclass(iris$Species)])
+```
+</p>
+<p class="double-flow">
+<img src="img/sw.jpg" class="one-col-image">
+</p>
+</div>
+
+## 兩欄 (連續) image and text
+
+<p class="double">
+<img src="img/sw.jpg" class="one-col-image">
+How did I get into this mess? I really don't know how. We seem to be made
+to suffer. It's our lot in life. I've got to rest before I fall apart. My
+joints are almost frozen. What a desolate place this is. Where are you
+going?
+</p>
+
+## 兩欄獨立
+
+<div class="double">
+<p class="double-flow">
+How did I get into this mess? I really don't know how. We seem to be made
+to suffer.
+</p>
+<p class="double-flow">
+It's our lot in life. I've got to rest before I fall apart.
+<img src="img/sw.jpg" style="height:auto; max-width:100%;" />
+</p>
+</div>
+
+## Formulas
+
+Formulas are rendered by KaTeX, https://github.com/Khan/KaTeX
+
+It supports both inline: \(y = x / 2\) and displayed formulas:
+
+\[ x_{1,2} = \frac{- b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+## Reference
+
+http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+
+
+
