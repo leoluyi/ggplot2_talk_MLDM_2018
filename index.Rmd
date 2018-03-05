@@ -34,15 +34,18 @@ library(ggrepel)
 ```
 
 
-## <br/><br/>More ggplot2 with tidyverse {.white}
+## <br/>More ggplot2 with tidyverse {.white}
 
 <img src="img/reptile.jpg" class="cover">
 <p class="white">
 `r Sys.Date()`<br/>
+</p>
 <p style='color:white'>
-  [Leo Lu](https://github.com/leoluyi)
+  呂奕 [Leo Lu](https://github.com/leoluyi)<br/>
+  台大工管<br/>
+  目前於金融業服務<br/>
 </p>
-</p>
+
 
 
 ## <br/><br/> {.white}
@@ -242,9 +245,9 @@ models
 
 ## See the R^2
 
-```{r, echo=TRUE ,fig.asp=1.35}
+```{r, echo=TRUE, fig.asp=1.35}
 models %>% 
-  ggplot(aes(rsq, reorder(country, rsq))) +
+  ggplot(aes(rsq, reorder(country, rsq))) +  # use factor levels
   geom_point(aes(colour = continent))
 ```
 
